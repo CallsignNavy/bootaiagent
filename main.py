@@ -15,8 +15,8 @@ def main():
         contents="Why is Boot.dev such a great place to learn backend development? Use one paragraph maximum."
     )
     print(resp.text)
-    print(resp.usage_metadata.prompt_token_count)
-    print(resp.usage_metadata.candidates_token_count)
+    print(f"Prompt tokens: {resp.usage_metadata.prompt_token_count}")
+    print(f"Response tokens: {resp.usage_metadata.candidates_token_count}")
 
 
 if __name__ == "__main__":
