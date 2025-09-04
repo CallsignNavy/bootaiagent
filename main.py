@@ -9,16 +9,12 @@ load_dotenv()
 api_key = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
-user_prompt = sys.argv[1]
-messages = [
-    types.Content(role="user", parts=[types.Part(text=user_prompt)]),
-]
-
 def main():
     print("Hello from bootaiagent!")
 
     if len(sys.argv) == 2:
-
+        user_prompt = sys.argv[1]
+        messages = [types.Content(role="user", parts=[types.Part(text=user_prompt)])]
         resp = client.models.generate_content(
             model="gemini-2.0-flash-001",
             contents=messages,
